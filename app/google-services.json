@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "429798634761",
+    "firebase_url": "https://fastconnect-19b00.firebaseio.com",
+    "project_id": "fastconnect-19b00",
+    "storage_bucket": "fastconnect-19b00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429798634761:android:0ebe2994ddef3028",
+        "android_client_info": {
+          "package_name": "com.fastconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "429798634761-bd8v57m02u37v5h6efu0f0jvkvchg609.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fastconnect",
+            "certificate_hash": "49d2e0dacd316f7c56c60cabb0321ab565a26ab2"
+          }
+        },
+        {
+          "client_id": "429798634761-ca42cd0bv1td5d3r7qetd4d49in5ua2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD07_n1NzyWdbtE88MjABSHHWQrnM_Z6J0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "429798634761-ca42cd0bv1td5d3r7qetd4d49in5ua2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
