@@ -94,9 +94,7 @@ public class EditProfileActivity extends AppCompatActivity implements SuccessDia
         edit_email_user.setText(userEmail);
         edit_user_mobile.setText(userContact);
 
-
         event();
-
 
     }// ============== End onCreate () =========
 
