@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/app_them"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -34,7 +35,6 @@
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="match_parent"
-        android:background="@color/white"
         android:layout_height="match_parent"
         android:layout_above="@+id/ll_bottom_nav_click"
         android:layout_below="@+id/rel_action_bar" />

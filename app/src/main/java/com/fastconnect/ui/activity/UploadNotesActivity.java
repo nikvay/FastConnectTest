@@ -127,7 +127,7 @@ public class UploadNotesActivity extends AppCompatActivity implements SuccessDia
 
         } else if (timeTable_notes.equalsIgnoreCase("teacher")) {
             ll_time_table_select.setVisibility(View.GONE);
-            ll_teacher_notes.setVisibility(View.VISIBLE);
+//            ll_teacher_notes.setVisibility(View.VISIBLE);
             tv_action_bar_title.setText("Upload Notes");
 //            ll_subject_select.setVisibility(View.VISIBLE);
         }
