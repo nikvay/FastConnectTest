@@ -49,6 +49,7 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 
+
 import es.dmoral.toasty.Toasty;
 
 public class DriverActivity extends AppCompatActivity {
@@ -401,7 +402,7 @@ public class DriverActivity extends AppCompatActivity {
      * Return the current state of the permissions needed.
      */
     private boolean checkPermissions() {
-        int permissionState1 = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION);
+        int permissionState1 = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
 
         int permissionState2 = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
 
@@ -416,7 +417,7 @@ public class DriverActivity extends AppCompatActivity {
 
         boolean shouldProvideRationale =
                 ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        android.Manifest.permission.ACCESS_FINE_LOCATION);
+                        Manifest.permission.ACCESS_FINE_LOCATION);
 
         boolean shouldProvideRationale2 =
                 ActivityCompat.shouldShowRequestPermissionRationale(this,
@@ -432,7 +433,7 @@ public class DriverActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     // Request permission
                     ActivityCompat.requestPermissions(DriverActivity.this,
-                            new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION,
+                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
                                     Manifest.permission.ACCESS_COARSE_LOCATION},
                             REQUEST_PERMISSIONS_REQUEST_CODE);
                 }
@@ -443,7 +444,7 @@ public class DriverActivity extends AppCompatActivity {
             // sets the permission in a given state or the img_user denied the permission
             // previously and checked "Never ask again".
             ActivityCompat.requestPermissions(DriverActivity.this,
-                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
                     REQUEST_PERMISSIONS_REQUEST_CODE);
         }
     }

@@ -16,10 +16,10 @@ public interface ApiInterface {
 
     @POST(EndApi.LOGIN)
     @FormUrlEncoded
-    Call<SuccessModule> loginCall(@Field("login_type") String login_type,
-                                  @Field("user_name") String user_name,
+    Call<SuccessModule> loginCall(@Field("user_name") String user_name,
                                   @Field("password") String password,
                                   @Field("firebase_id") String firebase_id);
+
 
   /*  @Headers("Content-Type: application/json")
     @GET(EndApi.CLASS_LIST)
@@ -86,12 +86,12 @@ public interface ApiInterface {
 
     @POST(EndApi.EVENT_ADD)
     @FormUrlEncoded
-    Call<SuccessModule> evenAddCall(@Field("event_title") String event_title,
+    Call<SuccessModule> evenAddCall(@Field("user_id") String user_id,
+                                    @Field("event_title") String event_title,
                                     @Field("event_date") String event_date,
                                     @Field("event_description") String event_description,
                                     @Field("location") String location,
                                     @Field("image") String image);
-
     @POST(EndApi.EVENT_LIST)
     @FormUrlEncoded
     Call<SuccessModule> evenListCall(@Field("user_id") String user_id);

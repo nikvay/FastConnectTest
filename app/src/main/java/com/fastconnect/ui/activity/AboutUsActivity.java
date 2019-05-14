@@ -7,14 +7,9 @@ import android.widget.ImageView;
 
 import com.fastconnect.R;
 
+
 public class AboutUsActivity extends AppCompatActivity {
 
-    /*
-   Toasty.error(yourContext, "This is an error toast.", Toast.LENGTH_SHORT, true).show();
-   Toasty.success(yourContext, "Success!", Toast.LENGTH_SHORT, true).show();
-   Toasty.info(yourContext, "Here is some info for you.", Toast.LENGTH_SHORT, true).show();
-   Toasty.warning(yourContext, "Beware of the dog.", Toast.LENGTH_SHORT, true).show();
-    * */
     ImageView iv_back;
 
     @Override

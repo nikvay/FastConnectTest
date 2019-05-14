@@ -24,7 +24,6 @@ import com.fastconnect.shared_pref.SharedPreference;
 import com.fastconnect.ui.adapter.NotificationPublicAdapter;
 import com.fastconnect.utils.NetworkUtils;
 import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -61,7 +60,7 @@ public class NotificationTypeActivity extends AppCompatActivity {
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
 
         uId = SharedPreference.getUserID(NotificationTypeActivity.this);
 

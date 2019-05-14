@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,16 +45,15 @@ import static android.content.Context.MODE_PRIVATE;
 public class HomeFragment extends Fragment {
 
     Context mContext;
-    LinearLayout ll_admin_lib_hide, ll_lib_hide_home, ll_student, ll_library, ll_std_teacher_home;
-    LinearLayout ll_attendance, ll_tutorials, ll_events, ll_leave, ll_video, ll_gk_quiz, ll_holiday, ll_result,
+    LinearLayout ll_only_std, ll_ts, ll_attendance_hide, ll_notes_hide, ll_result_hide, ll_library_hide, ll_ts_admin;
+    RelativeLayout rel_notification_hide;
+    LinearLayout ll_attendance, ll_tutorials, ll_events, ll_leave, ll_video, ll_gk_quiz, ll_holiday, ll_result, ll_library,
             ll_home_work, ll_time_table, ll_gallery, ll_bus_track, ll_notification, ll_fees, ll_teacher;
     CarouselView carousel_view;
-    ScrollView scroll_view_home_hide;
-    LinearLayout ll_home_driver_visible;
 
-    RelativeLayout rel_gallery_count,rel_notification_count;
-    TextView tv_gallery_count,tv_notification_count;
-    String gallery_count,notification_count;
+    RelativeLayout rel_gallery_count, rel_notification_count;
+    TextView tv_gallery_count, tv_notification_count;
+    String gallery_count, notification_count;
 
     //======Interface Declaration=========
     String TAG = getClass().getSimpleName();
@@ -88,25 +86,24 @@ public class HomeFragment extends Fragment {
         uId = SharedPreference.getUserID(mContext);
 
         if (isSelectUser != null && isSelectUser.equalsIgnoreCase("1")) {
-            ll_library.setVisibility(View.GONE);
-            ll_leave.setVisibility(View.GONE);
-            ll_teacher.setVisibility(View.VISIBLE);
-
+            ll_only_std.setVisibility(View.GONE);
+            ll_ts.setVisibility(View.GONE);
+            ll_attendance_hide.setVisibility(View.GONE);
+            ll_notes_hide.setVisibility(View.GONE);
 
         } else if (isSelectUser != null && isSelectUser.equalsIgnoreCase("2")) {
-            ll_admin_lib_hide.setVisibility(View.VISIBLE);
-            ll_video.setVisibility(View.VISIBLE);
-
+            ll_only_std.setVisibility(View.GONE);
 
         } else if (isSelectUser != null && isSelectUser.equalsIgnoreCase("3")) {
-            ll_admin_lib_hide.setVisibility(View.VISIBLE);
-            ll_student.setVisibility(View.VISIBLE);
-            ll_gk_quiz.setVisibility(View.VISIBLE);
-            ll_video.setVisibility(View.VISIBLE);
-
+            ll_result_hide.setVisibility(View.VISIBLE);
+            ll_teacher.setVisibility(View.GONE);
 
         } else if (isSelectUser != null && isSelectUser.equalsIgnoreCase("4")) {
-            ll_lib_hide_home.setVisibility(View.GONE);
+            ll_library_hide.setVisibility(View.VISIBLE);
+            rel_notification_hide.setVisibility(View.GONE);
+            ll_only_std.setVisibility(View.GONE);
+            ll_ts.setVisibility(View.GONE);
+            ll_ts_admin.setVisibility(View.GONE);
         }
 
         if (homeImagesModuleArrayList != null) {
@@ -131,15 +128,17 @@ public class HomeFragment extends Fragment {
     }
 
     private void find_All_IDs(View view) {
-        scroll_view_home_hide = view.findViewById(R.id.scroll_view_home_hide);
+        ll_only_std = view.findViewById(R.id.ll_only_std);
+        ll_ts = view.findViewById(R.id.ll_ts);
+        ll_attendance_hide = view.findViewById(R.id.ll_attendance_hide);
+        ll_notes_hide = view.findViewById(R.id.ll_notes_hide);
+        ll_result_hide = view.findViewById(R.id.ll_result_hide);
+        ll_library_hide = view.findViewById(R.id.ll_library_hide);
+        rel_notification_hide = view.findViewById(R.id.rel_notification_hide);
+        ll_ts_admin = view.findViewById(R.id.ll_ts_admin);
 
-        ll_home_driver_visible = view.findViewById(R.id.ll_home_driver_visible);
-        ll_admin_lib_hide = view.findViewById(R.id.ll_admin_lib_hide);
-        ll_lib_hide_home = view.findViewById(R.id.ll_lib_hide_home);
         ll_gk_quiz = view.findViewById(R.id.ll_gk_quiz);
-        ll_std_teacher_home = view.findViewById(R.id.ll_std_teacher_home);
         ll_library = view.findViewById(R.id.ll_library);
-        ll_student = view.findViewById(R.id.ll_student);
         ll_attendance = view.findViewById(R.id.ll_attendance);
         ll_tutorials = view.findViewById(R.id.ll_tutorials);
         ll_result = view.findViewById(R.id.ll_result);
@@ -171,13 +170,13 @@ public class HomeFragment extends Fragment {
 
         notification_count = sharedpreferences.getString(SharedPreference.NOTIFICATION_COUNT, "");
         tv_notification_count.setText(notification_count);
-        if (notification_count != null && notification_count.equals("")){
+        if (notification_count != null && notification_count.equals("")) {
             rel_notification_count.setVisibility(View.GONE);
         }
 
         gallery_count = sharedpreferences.getString(SharedPreference.GALLERY_COUNT, "");
         tv_gallery_count.setText(gallery_count);
-        if (gallery_count != null && gallery_count.equals("")){
+        if (gallery_count != null && gallery_count.equals("")) {
             rel_gallery_count.setVisibility(View.GONE);
         }
     }
@@ -251,6 +250,13 @@ public class HomeFragment extends Fragment {
                 } else if (isSelectUser.equalsIgnoreCase("4")) {
                     ((HomeActivity) mContext).replaceFragment(new LibraryFragment());
                 }
+            }
+        });
+
+        ll_library_hide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((HomeActivity) mContext).replaceFragment(new LibraryFragment());
             }
         });
 

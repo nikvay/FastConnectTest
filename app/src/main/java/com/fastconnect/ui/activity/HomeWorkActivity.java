@@ -116,7 +116,7 @@ public class HomeWorkActivity extends AppCompatActivity implements SuccessDialog
         editor = sharedpreferences.edit();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
         uId = SharedPreference.getUserID(HomeWorkActivity.this);
         uType = SharedPreference.getUserType(HomeWorkActivity.this);
 

@@ -37,7 +37,6 @@ import com.fastconnect.utils.NetworkUtils;
 import com.fastconnect.utils.SuccessDialog;
 import com.fastconnect.utils.SuccessDialogClosed;
 import com.google.gson.Gson;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -112,7 +111,7 @@ public class UploadNotesActivity extends AppCompatActivity implements SuccessDia
         editor = sharedpreferences.edit();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
         timeTable_notes = sharedpreferences.getString(SharedPreference.TIME_TABLE_NOTES, "");
         uId = SharedPreference.getUserID(this);
         uType = SharedPreference.getUserType(UploadNotesActivity.this);

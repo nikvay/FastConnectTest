@@ -28,7 +28,6 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.fastconnect.R;
-import com.fastconnect.domain.module.LoginModule;
 import com.fastconnect.domain.module.SuccessModule;
 import com.fastconnect.domain.network.ApiClient;
 import com.fastconnect.domain.network.ApiInterface;
@@ -71,7 +70,7 @@ public class EventAddActivity extends AppCompatActivity implements SuccessDialog
     String TAG = getClass().getSimpleName();
     ApiInterface apiInterface;
     ProgressDialog pd;
-    String token, isSelectUser;
+    String isSelectUser,uId;
     SharedPreferences sharedpreferences;
     SharedPreferences.Editor editor;
     public static String MyPREFERENCES = "Fast Connect";
@@ -95,7 +94,8 @@ public class EventAddActivity extends AppCompatActivity implements SuccessDialog
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         editor = sharedpreferences.edit();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
+        uId = SharedPreference.getUserID(EventAddActivity.this);
 
         event();
 
@@ -332,7 +332,7 @@ public class EventAddActivity extends AppCompatActivity implements SuccessDialog
         pd.setCancelable(false);
         pd.show();
 
-        Call<SuccessModule> call = apiInterface.evenAddCall(titleName, date, desc, location,photo);
+        Call<SuccessModule> call = apiInterface.evenAddCall(uId,titleName, date, desc, location,photo);
 
         call.enqueue(new Callback<SuccessModule>() {
             @Override

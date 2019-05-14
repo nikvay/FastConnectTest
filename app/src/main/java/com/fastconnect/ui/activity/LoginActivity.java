@@ -25,6 +25,7 @@ import com.fastconnect.utils.SuccessDialog;
 import com.fastconnect.utils.SuccessDialogClosed;
 import com.google.gson.Gson;
 
+
 import java.util.ArrayList;
 
 import es.dmoral.toasty.Toasty;
@@ -58,12 +59,12 @@ public class LoginActivity extends AppCompatActivity implements SuccessDialogClo
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+       // isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
         token = SharedPreference.getDeviceToken(LoginActivity.this);
 
         find_All_IDs();
 
-        if (isSelectUser.equalsIgnoreCase("1")) {
+        /*if (isSelectUser.equalsIgnoreCase("1")) {
             tv_action_bar_title.setText("Admin Login");
         } else if (isSelectUser.equalsIgnoreCase("2")) {
             tv_action_bar_title.setText("Teacher Login");
@@ -73,14 +74,14 @@ public class LoginActivity extends AppCompatActivity implements SuccessDialogClo
             tv_action_bar_title.setText("Librarian Login");
         } else if (isSelectUser.equalsIgnoreCase("5")) {
             tv_action_bar_title.setText("Driver Login");
-        }
+        }*/
 
-        iv_back.setOnClickListener(new View.OnClickListener() {
+       /* iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
-        });
+        });*/
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,8 +93,8 @@ public class LoginActivity extends AppCompatActivity implements SuccessDialogClo
     }//================== End onCreate() =============================
 
     private void find_All_IDs() {
-        iv_back = findViewById(R.id.iv_back);
-        tv_action_bar_title = findViewById(R.id.tv_action_bar_title);
+        //iv_back = findViewById(R.id.iv_back);
+        //tv_action_bar_title = findViewById(R.id.tv_action_bar_title);
         edt_user_id = findViewById(R.id.edt_user_id);
         edt_password = findViewById(R.id.edt_password);
         btn_login = findViewById(R.id.btn_login);
@@ -123,19 +124,19 @@ public class LoginActivity extends AppCompatActivity implements SuccessDialogClo
             edt_password.requestFocus();
         } else {
             if (NetworkUtils.isNetworkAvailable(this))
-                doLogin(isSelectUser, userName, password, token);
+                doLogin(userName, password, token);
             else
                 NetworkUtils.isNetworkNotAvailable(this);
         }
     }
 
-    private void doLogin(String isSelectUser, String userName, final String password, String token) {
+    private void doLogin( String userName, final String password, String token) {
         pd = new ProgressDialog(this);
         pd.setMessage("Loading Please Wait...");
         pd.setCancelable(false);
         pd.show();
 
-        Call<SuccessModule> call = apiInterface.loginCall(isSelectUser, userName, password, token);
+        Call<SuccessModule> call = apiInterface.loginCall(userName, password, token);
 
         call.enqueue(new Callback<SuccessModule>() {
             @Override

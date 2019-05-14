@@ -1,14 +1,11 @@
 package com.fastconnect.ui.activity;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,9 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.fastconnect.R;
-import com.fastconnect.shared_pref.SharedPreference;
-import com.fastconnect.ui.HomeActivity;
 import com.fastconnect.ui.adapter.GKQuizAdapter;
 import com.fastconnect.ui.module.GKQuizModule;
 

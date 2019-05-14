@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.crashlytics.android.Crashlytics;
 import com.fastconnect.domain.module.SplashModule;
 import com.fastconnect.domain.module.SuccessModule;
 import com.fastconnect.domain.network.ApiClient;
@@ -28,7 +27,7 @@ import com.fastconnect.domain.network.ApiInterface;
 import com.fastconnect.domain.network.BaseApi;
 import com.fastconnect.shared_pref.SharedPreference;
 import com.fastconnect.ui.HomeActivity;
-import com.fastconnect.ui.activity.SelectUserActivity;
+import com.fastconnect.ui.activity.LoginActivity;
 import com.fastconnect.utils.NetworkUtils;
 import com.squareup.picasso.Picasso;
 import com.tbruyelle.rxpermissions.RxPermissions;
@@ -36,7 +35,6 @@ import com.tbruyelle.rxpermissions.RxPermissions;
 import java.util.ArrayList;
 
 import es.dmoral.toasty.Toasty;
-import io.fabric.sdk.android.Fabric;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -64,8 +62,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
-
         //=============== hide status bar ===============
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
@@ -77,7 +73,7 @@ public class SplashActivity extends AppCompatActivity {
         loginOrNot = sharedpreferences.getString(SharedPreference.IS_LOGIN, "");
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-         name = sharedpreferences.getString(SharedPreference.S_NAME, "");
+        name = sharedpreferences.getString(SharedPreference.S_NAME, "");
         String nameTwo = sharedpreferences.getString(SharedPreference.S_NAME_TWO, "");
         String image = sharedpreferences.getString(SharedPreference.S_IMG, "");
 
@@ -105,7 +101,7 @@ public class SplashActivity extends AppCompatActivity {
         else
             NetworkUtils.isNetworkNotAvailable(this);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             CheckPermissions();
         } else {
             new Handler().postDelayed(new Runnable() {
@@ -118,7 +114,7 @@ public class SplashActivity extends AppCompatActivity {
                         startActivity(intent);
                         overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                     } else {
-                        intent = new Intent(SplashActivity.this, SelectUserActivity.class);
+                        intent = new Intent(SplashActivity.this, LoginActivity.class);
                         startActivity(intent);
                         overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                     }
@@ -204,9 +200,9 @@ public class SplashActivity extends AppCompatActivity {
     private void CheckPermissions() {
         RxPermissions.getInstance(SplashActivity.this)
                 .request(
-                        android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        android.Manifest.permission.CAMERA,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.CAMERA,
                         Manifest.permission.READ_CALENDAR,
                         Manifest.permission.WRITE_CALENDAR,
                         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -236,7 +232,7 @@ public class SplashActivity extends AppCompatActivity {
                             startActivity(intent);
                             overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                         } else {
-                            intent = new Intent(SplashActivity.this, SelectUserActivity.class);
+                            intent = new Intent(SplashActivity.this, LoginActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
                         }

@@ -28,8 +28,6 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
@@ -67,7 +65,7 @@ public class GroupChatActivity extends AppCompatActivity {
 
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
         class_id = sharedpreferences.getString(SharedPreference.CLASS_ID, "");
         division_id = sharedpreferences.getString(SharedPreference.DIVISION_ID, "");
 

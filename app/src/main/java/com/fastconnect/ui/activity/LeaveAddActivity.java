@@ -30,6 +30,7 @@ import com.fastconnect.utils.SuccessDialog;
 import com.fastconnect.utils.SuccessDialogClosed;
 import com.google.gson.Gson;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -73,7 +74,7 @@ public class LeaveAddActivity extends AppCompatActivity implements SuccessDialog
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         editor = sharedpreferences.edit();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
         uId = SharedPreference.getUserID(LeaveAddActivity.this);
 
         currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());

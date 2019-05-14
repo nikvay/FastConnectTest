@@ -1,14 +1,6 @@
 package com.fastconnect.ui.activity;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.MediaController;
-import android.widget.VideoView;
 
 import com.fastconnect.R;
 import com.fastconnect.utils.Const;
@@ -17,7 +9,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-public class VideoViewActivity  extends YouTubeBaseActivity {
+public class VideoViewActivity extends YouTubeBaseActivity {
 
     private String videoID;
     private YouTubePlayerView youTubePlayerView;

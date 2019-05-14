@@ -52,7 +52,7 @@ public class HolidayActivity extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
         uId = SharedPreference.getUserID(this);
 
         iv_back.setOnClickListener(new View.OnClickListener() {

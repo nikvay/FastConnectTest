@@ -78,7 +78,7 @@ public class EditProfileActivity extends AppCompatActivity implements SuccessDia
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         editor = sharedpreferences.edit();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
         uId = SharedPreference.getUserID(EditProfileActivity.this);
         uType = SharedPreference.getUserType(EditProfileActivity.this);
 

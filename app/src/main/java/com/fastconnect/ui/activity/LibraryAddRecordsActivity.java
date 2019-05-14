@@ -42,7 +42,6 @@ import com.fastconnect.utils.NetworkUtils;
 import com.fastconnect.utils.SuccessDialog;
 import com.fastconnect.utils.SuccessDialogClosed;
 import com.google.gson.Gson;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -110,7 +109,7 @@ public class LibraryAddRecordsActivity extends AppCompatActivity implements Succ
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         editor = sharedpreferences.edit();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
 
         uId = SharedPreference.getUserID(this);
         uType = SharedPreference.getUserType(this);

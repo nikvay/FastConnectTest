@@ -44,8 +44,8 @@ import com.fastconnect.shared_pref.SharedPreference;
 import com.fastconnect.ui.HomeActivity;
 import com.fastconnect.ui.adapter.StudentAdapter;
 import com.fastconnect.ui.adapter.TeacherAdapter;
-import com.fastconnect.utils.FilePath;
 import com.fastconnect.utils.Const;
+import com.fastconnect.utils.FilePath;
 import com.fastconnect.utils.NetworkUtils;
 import com.fastconnect.utils.SuccessDialog;
 import com.fastconnect.utils.SuccessDialogClosed;
@@ -154,7 +154,7 @@ public class NotificationAddActivity extends AppCompatActivity implements Succes
         editor = sharedpreferences.edit();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
 
         uId = SharedPreference.getUserID(NotificationAddActivity.this);
         uType = SharedPreference.getUserType(NotificationAddActivity.this);

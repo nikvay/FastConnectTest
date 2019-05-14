@@ -20,6 +20,7 @@ import com.fastconnect.shared_pref.SharedPreference;
 import com.fastconnect.ui.HomeActivity;
 import com.fastconnect.utils.NetworkUtils;
 import com.google.gson.Gson;
+
 import com.squareup.picasso.Picasso;
 
 import es.dmoral.toasty.Toasty;
@@ -52,7 +53,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(MyPREFERENCES, MODE_PRIVATE);
         editor = sharedpreferences.edit();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        isSelectUser = sharedpreferences.getString(SharedPreference.IS_SELECT_USER, "");
+        isSelectUser = sharedpreferences.getString(SharedPreference.U_TYPE, "");
 
         if (isSelectUser.equalsIgnoreCase("1")) {
             iv_delete_event.setVisibility(View.VISIBLE);
